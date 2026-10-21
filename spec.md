@@ -34,7 +34,7 @@ Implements [`intent/ask-the-course.md`](intent/ask-the-course.md).
 ## Behavior
 
 1. The indexer reads exactly the documents listed above from `COURSE_DIR` and never copies a page into this repository; `index.json` holds chunk text only as part of the index.
-2. The indexer splits each page at headings of level 1 to 3. A section longer than 2,000 characters is split further at blank lines into pieces of at most about 1,500 characters, each keeping its heading.
+2. The indexer splits each page at headings of level 1 to 3. A section longer than 2,000 characters is split further at blank lines into pieces of at most about 1,500 characters, each keeping its heading. A section with a heading and no text under it (for example `syllabus.md › Trinity College`) is not a chunk; it is skipped, because it carries no answer but could still take one of the four retrieval slots.
 3. Every chunk is labeled `file › heading`, for example `weeks/03/lab.md › 4. The second model`, and the label is the first line of the text that gets embedded.
 4. The indexer embeds chunks in batches, writes `index.json`, and prints the file count, chunk count, tokens and cost. It stops with an error if it finds zero files or zero chunks.
 5. The asker refuses to run if `index.json` is missing, or was built with a different embedding model, and says to run the indexer.
