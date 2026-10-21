@@ -1,0 +1,32 @@
+[
+  {
+    "id": "due_date",
+    "kind": "single",
+    "question": "When is the Week 2 chat client assignment due?",
+    "expect": ["September 28"]
+  },
+  {
+    "id": "grade_weight",
+    "kind": "single",
+    "question": "What percentage of the final grade is the individual portfolio worth?",
+    "expect": ["25%"]
+  },
+  {
+    "id": "lab_step",
+    "kind": "single",
+    "question": "At Checkpoint B of the Week 1 setup, what branch should git report?",
+    "expect": ["first-build"]
+  },
+  {
+    "id": "spread",
+    "kind": "spread",
+    "question": "What tag do I push for the Week 3 submission, and how many late days do I get per semester?",
+    "expect": ["week03-submitted", "3 late days"]
+  },
+  {
+    "id": "not_in_pages",
+    "kind": "unanswerable",
+    "question": "Who is the teaching assistant for CPSC 415?",
+    "expect": ["I can't find that in the course documents."]
+  }
+]
