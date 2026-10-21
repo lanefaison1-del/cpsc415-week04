@@ -2,7 +2,7 @@
 
 ## Goal
 
-A command-line program that answers a question about CPSC 415 using only the course's own Markdown pages, cites which pages it used, and replies "I can't find that in the course documents" when the pages don't contain the answer.
+A command-line program that answers a question about CPSC 415 using only the course's own Markdown pages, cites the page and section it used for each part of the answer, and replies "I can't find that in the course documents" when the pages don't contain the answer.
 
 ## Who it is for
 
@@ -29,11 +29,16 @@ A CPSC 415 student, starting with me. Today, finding a due date, a grade weight,
 - A due-date question gets the right date, with its citation.
 - A question the pages cannot answer gets exactly "I can't find that in the course documents."
 - Every answer shows which chunks were used and their scores.
+- Citations name the file and the section heading, for example `weeks/03/lab.md › 4. The second model`, so I can go straight to the spot.
+
+## Decisions from the interview
+
+- A citation is the file name plus the section heading, not the file name alone; `syllabus.md` is too long to search by hand.
+- When the pages answer only part of a question, the program answers that part, cites it, and says the rest is not in the course documents.
+- When two pages disagree, there is no special rule: the program answers from the closest chunks. Step 4 of the lab observes what that does.
 
 ## Open questions
 
-- What counts as a citation?
-- What happens when the pages answer only part of a question?
-- What happens when two pages disagree?
+None.
 
-**Approved by:** <your name>, <date>
+**Approved by:** Lane Faison, October 21, 2026
