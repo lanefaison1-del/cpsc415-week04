@@ -1,31 +1,43 @@
 # Project conventions
 
-<!-- The agent reads this at the start of every session. Keep it short and current.
-     Graded: does it reflect how the team actually works? -->
-
 ## What this repository is
-One paragraph. Link to the current `spec.md`.
+
+The Week 4 lab for CPSC 415: a command-line program that answers a question about the course using only the course's own Markdown pages, cites the pages it used, and says "I can't find that in the course documents" when they don't contain the answer. An indexer splits the pages into chunks and embeds them; an asker retrieves the closest chunks and answers from them. The intent is in [`intent/ask-the-course.md`](intent/ask-the-course.md) and the design in [`spec.md`](spec.md).
 
 ## Commands
+
 ```
-# build
-# test
-# run
-# lint
+# build: not yet (set in plan.md)
+# test:  not yet
+# run:   not yet
+# lint:  none
 ```
 
 ## Conventions
-- Language and style rules the agent must follow.
-- Where tests live and how they are named.
-- Branch and PR naming.
+
+- Language: Python; code must run on Python 3.9 or later.
+- Default chat model: `minimax/minimax-m3` through OpenRouter. Embedding model: `openai/text-embedding-3-small`. Final choices and reasons are recorded in `spec.md`.
+- Configuration comes only from the environment: `CHAT_BASE_URL`, `CHAT_MODEL`, `OPENROUTER_API_KEY`. No key or secret in code or in the repo.
+- File naming: lowercase snake_case (`indexer.py`, `ask.py`, `questions.json`).
+- Eval questions live in `questions.json`; run results go in `CHECKS.md`.
 
 ## Working rules
 
 For an introductory lab, follow its explicitly assigned stages; the full chain below applies to major projects. Week 1 uses its own minimal repository.
 
-- Write or update `intent/` and `spec.md` before code. Get `plan.md` approved before implementing.
-- One feature per branch and pull request. Never push to `main` directly.
+- This is the Week 4 introductory lab. Stages assigned: intent, spec, and plan.
+  No branches or pull requests yet. Commit to main.
+- Libraries and build tools are allowed (pip or uv, Gradle or Maven). Name
+  each dependency in spec.md with the reason for it. A RAG framework such as
+  LangChain, LangChain4j, or Spring AI is fine, but the program must print
+  the chunks it retrieved and their scores for every answer.
+- The documents are the course repository at ../ai-integration-course:
+  syllabus.md, assignments/, and weeks/01 through weeks/03 (the course as it
+  stood before this lab). Skip weeks/04. Never copy the pages into this repo.
+- Ensure all commits are authored by Lane Faison.
+- Course requirement: intent and spec come before code, and `plan.md` is approved before implementation starts.
 - Never commit `.env` or `.claude/settings.local.json`.
 
 ## Common mistakes
-Things the agent got wrong before and must not repeat. Add to this list as they happen.
+
+Previous bugs to avoid. Add to this list as they happen.
