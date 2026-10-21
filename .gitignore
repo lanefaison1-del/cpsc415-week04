@@ -22,3 +22,6 @@ venv/
 .gradle/
 bin/
 obj/
+
+# rebuilt by indexer.py
+index.json
