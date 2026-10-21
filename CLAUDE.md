@@ -7,9 +7,9 @@ The Week 4 lab for CPSC 415: a command-line program that answers a question abou
 ## Commands
 
 ```
-# build: not yet (set in plan.md)
-# test:  not yet
-# run:   not yet
+# build: python3 -m venv .venv && .venv/bin/pip install -r requirements.txt && .venv/bin/python indexer.py
+# test:  .venv/bin/python eval.py
+# run:   .venv/bin/python ask.py "your question"   (add --no-retrieval for the baseline)
 # lint:  none
 ```
 
@@ -41,3 +41,6 @@ For an introductory lab, follow its explicitly assigned stages; the full chain b
 ## Common mistakes
 
 Previous bugs to avoid. Add to this list as they happen.
+
+- The model cited excerpts by their number (`[1 › Week 3: ...]`) instead of the `file › heading` label the intent asks for. The prompt now marks excerpts `--- Excerpt N ---`, puts the label on the first line, and says to copy the full label and never cite by number.
+- Plain `python3` on this Mac is 3.9 and has no numpy. Always run the programs with `.venv/bin/python`.
